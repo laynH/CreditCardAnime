@@ -36,7 +36,8 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            string returnCode = networkSingleton.sendCardData(pullDataFromTextBoxes());
+            Console.WriteLine("Return Code:" + returnCode);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -46,7 +47,7 @@ namespace WindowsFormsApp1
 
         private void label4_Click(object sender, EventArgs e)
         {
-            networkSingleton.sendCardData(pullDataFromTextBoxes());
+           
         }
 
         private void cardNumberBox_TextChanged(object sender, EventArgs e)
