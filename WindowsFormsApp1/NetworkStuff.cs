@@ -1,12 +1,13 @@
 ﻿using System;
 using System.IO;
 using System.Net;
-using System.Text;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 public class NetworkStuff
 {
     private static NetworkStuff networkStuffSingleton;
-    private WebRequest request = WebRequest.Create("http://localhost:3001/musicians");
+    private WebRequest request = WebRequest.Create("http://localhost:3001/onichansInfo");
 
     public NetworkStuff()
     {
@@ -22,8 +23,9 @@ public class NetworkStuff
         return networkStuffSingleton;
     }
 
-    public string sendCardData(string[] data)
+    public async Task sendCardData(string[] data)
     {
+        /*
         //declare type of request
         request.Method = "POST";
         //convert data to byte array
@@ -54,8 +56,28 @@ public class NetworkStuff
         reader.Close();
         dataStream.Close();
         responce.Close();
+        */
 
-        return responseFromServer; //returns 200 for now since you probably cant fail outputing to the console
+        HttpClient httpClient = new HttpClient();
+        //return new Product { Name = result };
+        HttpContent reqContent = new infoRequest();
+        string requestContent = "{cardNumber:" + data[0] + ",expDate:" + data[1] + ",securityCode:" + data[2] + "}";
+        await httpClient.PostAsync("http://localhost:3001/onichansInfo", reqContent);
+
+        //return "ok"; //returns 200 for now since you probably cant fail outputing to the console
+    }
+
+    class infoRequest : HttpContent
+    {
+        protected override Task SerializeToStreamAsync(Stream stream, TransportContext context)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override bool TryComputeLength(out long length)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

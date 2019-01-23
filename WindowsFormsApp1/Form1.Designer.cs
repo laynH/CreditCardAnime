@@ -55,8 +55,11 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.T4oCBNyM;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox2.ErrorImage = global::WindowsFormsApp1.Properties.Resources.T4oCBNyM;
+            this.pictureBox2.Image = global::WindowsFormsApp1.Properties.Resources.T4oCBNyM;
             this.pictureBox2.ImageLocation = "T4oCBNyM.bmp";
             this.pictureBox2.Location = new System.Drawing.Point(0, -2);
             this.pictureBox2.Name = "pictureBox2";

@@ -36,7 +36,7 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string returnCode = networkSingleton.sendCardData(pullDataFromTextBoxes());
+            string returnCode = ""; //networkSingleton.sendCardData(pullDataFromTextBoxes());
             Console.WriteLine("Return Code:" + returnCode);
         }
 
